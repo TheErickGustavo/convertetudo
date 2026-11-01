@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ConverteTudo</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/app.css">
+</head>
+<body>
+  <div class="app">
+    <header class="top">
+      <a class="brand" href="/">
+        <span>ConverteTudo</span>
+        <i class="rule" aria-hidden="true"></i>
+      </a>
+      <p class="where">nesta máquina</p>
+    </header>
+    <div class="stage" id="stage">
+      <section class="bed" id="desk">
+        <div class="invite" id="empty">
+          <h1>Solte o documento.</h1>
+          <p>Ele é convertido aqui. Nada é enviado para fora desta máquina.</p>
+          <button type="button" class="pick" id="pick">Escolher arquivo</button>
+          <div class="specimen">
+            <p><b>Lê</b> <span id="reads"></span></p>
+            <p><b>Escreve</b> <span id="writes"></span></p>
+          </div>
+        </div>
+        <ol class="jobs" id="jobs" hidden></ol>
+        <input id="file" type="file" multiple hidden>
+      </section>
+      <section class="proof" aria-label="Prova">
+        <div class="proof-bar">
+          <span id="proofName">Prova</span>
+          <div class="toggle" role="group" aria-label="Modo da prova">
+            <button type="button" id="viewPage" aria-pressed="true">Página</button>
+            <button type="button" id="viewText" aria-pressed="false">Texto</button>
+          </div>
+        </div>
+        <div class="frame" id="frame">
+          <svg class="cross tl" viewBox="0 0 12 12" aria-hidden="true"><path d="M6 1v10M1 6h10"/></svg>
+          <svg class="cross tr" viewBox="0 0 12 12" aria-hidden="true"><path d="M6 1v10M1 6h10"/></svg>
+          <svg class="cross bl" viewBox="0 0 12 12" aria-hidden="true"><path d="M6 1v10M1 6h10"/></svg>
+          <svg class="cross br" viewBox="0 0 12 12" aria-hidden="true"><path d="M6 1v10M1 6h10"/></svg>
+          <article class="sheet" id="sheet">
+            <p class="blank" id="blankCopy">A prova do texto aparece aqui.</p>
+          </article>
+          <pre class="raw" id="raw" hidden></pre>
+        </div>
+        <p class="warns" id="warns" hidden></p>
+      </section>
+    </div>
+    <footer class="bar" id="bar">
+      <span class="out-label" id="outLabel">Saída</span>
+      <button type="button" class="format-btn" id="formatBtn" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="outLabel formatName">
+        <span id="formatName">TXT</span>
+        <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg>
+      </button>
+      <span class="spacer"></span>
+      <button type="button" class="textbtn" id="add">Adicionar</button>
+      <button type="button" class="textbtn" id="zip" hidden>Baixar tudo</button>
+      <button type="button" class="go" id="convert" disabled>Converter</button>
+    </footer>
+  </div>
+  <div class="palette" id="palette" hidden role="dialog" aria-label="Formato de saída">
+    <input id="q" type="search" placeholder="Filtrar formato" autocomplete="off" aria-label="Filtrar formato">
+    <div class="families" id="families" role="listbox"></div>
+  </div>
+  <div class="live" id="live" aria-live="polite"></div>
+  <script src="/app.js"></script>
+</body>
+</html>
